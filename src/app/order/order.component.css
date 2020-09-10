@@ -1,0 +1,9 @@
+.sku-container {
+    padding: 15px;
+    background-color: antiquewhite;
+    width: 30%;
+}
+
+.quantity-input {
+    width: 100px;
+}

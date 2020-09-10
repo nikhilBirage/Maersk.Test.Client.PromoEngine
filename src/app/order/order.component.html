@@ -1,0 +1,18 @@
+<h2>SKU list</h2>
+<div>
+    <div>
+        Cart Items ({{cartSkus.length}})
+    </div>
+</div>
+<div *ngFor='let item of skus'>
+    <form>
+        <div class="sku-container">
+            <b>SKU Name: {{item.name}}</b><br>
+            <b>SKU Rate: {{item.rate}}</b><br>
+            Add Quantity: <input id="quantity" type="number" name="quantity" class="form-control quantity-input"
+                #quantity="ngModel" [(ngModel)]="item.skuQuantity" (ngModelChange)="updateQuantity(item)" />
+            <button (click)="addToCart(item)">Add to cart</button>
+        </div>
+    </form>
+    <br>
+</div>

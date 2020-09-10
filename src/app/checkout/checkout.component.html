@@ -1,0 +1,24 @@
+<div *ngIf='cart !== undefined && cart.skus !== undefined'>
+    Cart Items ({{cart.skus.length }})
+    <div *ngFor='let sku of cart.skus'>
+        <div>
+            {{ sku.name }} - {{ sku.rate }} Quantity: {{sku.skuQuantity}}
+            <span (click)="removeFromCart(sku)">(remove)</span>
+        </div>
+    </div>
+</div> <br>
+<div>
+
+    <label for="promos">Choose promo: </label>
+    <form #promoForm="ngForm">
+        <select class="form-control promo-selector" id="promo" [(ngModel)]="selectedPromo" name="promo"
+            #promo="ngModel">
+            <option *ngFor="let promo of promotions" [value]="promo.promoId">{{promo.promotionName}}</option>
+        </select><br>
+    </form>
+
+    <button (click)="calculatePromotion()">Apply Selected Promo</button>
+</div>
+Total Amount: <span>{{cart.totalAmount}}</span> <br>
+Discount Amount: <span>{{cart.totalDiscount}}</span> <br>
+Final Amount: <span>{{cart.finalAmount}}</span>
